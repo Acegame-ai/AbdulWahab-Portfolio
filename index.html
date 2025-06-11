@@ -3,340 +3,330 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AbdulWahab Lawal - Developer & Game Designer</title>
+  <title>AbdulWahab Lawal – Developer & Game Designer</title>
+  <!-- Google Fonts for a gaming vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet"/>
   <style>
+    :root {
+      --primary: #00e5ff;
+      --accent: #ff79c6;
+      --bg-dark: #0d0d0d;
+      --card-bg: #1f1f1f;
+      --text-light: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f4f8;
-      color: #333;
-      scroll-behavior: smooth;
+      font-family: 'Orbitron', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
     }
     header {
-      background: linear-gradient(135deg, #2980b9, #8e44ad);
-      color: white;
-      padding: 60px 20px;
+      position: relative;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 60px 20px;
+      background: var(--card-bg);
+      overflow: hidden;
     }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -20%; left: -20%;
+      width: 140%; height: 140%;
+      background: radial-gradient(circle at center, rgba(0,229,255,0.2), transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate { from { transform: rotate(0); } to { transform: rotate(360deg); } }
     header h1 {
-      margin: 0;
-      font-size: 3.5rem;
-      letter-spacing: 1px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 2.5rem;
+      color: var(--primary);
+      text-shadow: 0 0 8px var(--primary);
+      z-index: 1;
     }
     header p {
-      font-size: 1.3rem;
-      margin: 10px 0;
+      margin-top: 10px;
+      color: var(--accent);
+      letter-spacing: 1px;
+      z-index: 1;
     }
     nav {
       display: flex;
       justify-content: center;
-      background-color: #2980b9;
-      padding: 10px 0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: var(--card-bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
     nav a {
-      color: white;
+      color: var(--text-light);
+      text-transform: uppercase;
       text-decoration: none;
-      margin: 0 15px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      transition: color 0.3s, border-bottom 0.3s;
-    }
-    nav a:hover {
-      color: #8e44ad;
-      border-bottom: 3px solid #8e44ad;
-    }
-    section {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    section:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    h2 {
-      color: #2980b9;
-      border-bottom: 2px solid #2980b9;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      font-size: 2.2rem;
-    }
-    /* Projects Section */
-    .projects-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: space-between;
-    }
-    .project-card {
-      background: #ecf0f1;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 100%;
-      max-width: 300px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .project-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.6rem;
-      color: #2980b9;
-    }
-    .project-card p {
-      margin: 10px 0;
-      font-size: 1.2rem;
-    }
-    .project-card img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-    .status {
-      color: #e67e22;
-      font-weight: bold;
-    }
-    /* Contact Section */
-    .contact-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .contact-card {
-      background: #ecf0f1;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 100%;
-      max-width: 300px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .contact-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .contact-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.6rem;
-      color: #2980b9;
-    }
-    .contact-card p {
-      margin: 10px 0;
-      font-size: 1.2rem;
-    }
-    .contact-card a {
-      color: #2980b9;
-      text-decoration: none;
-      font-weight: bold;
+      margin: 15px 20px;
+      font-size: 0.9rem;
+      position: relative;
       transition: color 0.3s;
     }
-    .contact-card a:hover {
-      color: #8e44ad;
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -5px;
+      width: 0; height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
     }
-    @media (max-width: 768px) {
-      section {
-        margin: 20px;
-        padding: 15px;
-      }
-      .projects-container, .contact-info {
-        flex-direction: column;
-        align-items: center;
-      }
+    nav a:hover { color: var(--primary); }
+    nav a:hover::after { width: 100%; }
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-    @media (max-width: 480px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-      }
-      nav a {
-        margin: 5px 0;
-        font-size: 1rem;
-      }
+    section:nth-of-type(even) { background: #111; }
+    h2 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: var(--primary);
+      text-shadow: 0 0 6px var(--primary);
+      margin-bottom: 20px;
+    }
+    .skills-container, .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .skill-card, .project-card {
+      background: var(--card-bg);
+      border: 2px solid var(--primary);
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1 1 280px;
+      box-shadow: 0 0 10px rgba(0,229,255,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .skill-card:hover, .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,229,255,0.4);
+    }
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--accent);
+      margin-bottom: 10px;
+    }
+    .skill-card h3, .project-card h3 {
+      margin: 10px 0;
+      color: var(--primary);
+    }
+    .progress-bar {
+      background: rgba(255,255,255,0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      height: 10px;
+      margin-top: 8px;
+    }
+    .progress-bar span {
+      display: block;
+      height: 100%;
+      background: var(--primary);
+      width: var(--progress, 50%);
+      transition: width 0.5s ease-in-out;
+    }
+    .project-card a {
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      position: relative;
+    }
+    .project-card a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    .project-card a:hover::after { width: 100%; }
+    .status {
+      color: var(--accent);
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    ul { list-style: none; padding: 0; }
+    ul li::before {
+      content: '▸ ';
+      color: var(--primary);
+      margin-right: 5px;
+    }
+    @media (max-width: 600px) {
+      nav { flex-direction: column; }
+      nav a { margin: 10px 0; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>AbdulWahab Lawal</h1>
-    <p>Developer & Game Designer</p>
+    <p>Creative Developer | Game Designer | AI Enthusiast</p>
   </header>
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
   </nav>
+
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      I am a creative and dedicated developer with a strong passion for building innovative and user-friendly websites and games. My expertise ranges from web design to game development, and I enjoy creating interactive digital experiences.
-    </p>
+    <p>I’m a developer who thrives on innovation, systems thinking, and game design. From crafting intuitive UIs and building interactive gameplay mechanics to experimenting with AI and generating ideas, I bring creativity, adaptability, and precision to every project.</p>
   </section>
+
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-container">
-      <!-- Web Design -->
       <div class="skill-card">
-        <div class="skill-info">
-          <div class="skill-icon">🎨</div>
-          <div>
-            <h3>Web Design</h3>
-            <p>Experienced in crafting responsive, visually appealing web pages.</p>
-            <div class="progress-bar"><span style="width: 85%;"></span></div>
-          </div>
-        </div>
+        <div class="skill-icon">🤖</div>
+        <h3>AI Enthusiast</h3>
+        <p>Exploring how AI integrates into games and apps using APIs and intelligent systems.</p>
+        <div class="progress-bar" style="--progress:75%;"><span></span></div>
       </div>
-      <!-- Game Design with Unity -->
       <div class="skill-card">
-        <div class="skill-info">
-          <div class="skill-icon">🕹️</div>
-          <div>
-            <h3>Game Design with Unity</h3>
-            <p>Proficient in creating interactive and engaging games using Unity.</p>
-            <div class="progress-bar"><span style="width: 80%;"></span></div>
-          </div>
-        </div>
+        <div class="skill-icon">🎮</div>
+        <h3>Unity Game Dev</h3>
+        <p>Advanced experience with 2D &amp; 3D systems, AI, NavMesh, level design.</p>
+        <div class="progress-bar" style="--progress:90%;"><span></span></div>
       </div>
-      <!-- C# -->
       <div class="skill-card">
-        <div class="skill-info">
-          <div class="skill-icon">⚙️</div>
-          <div>
-            <h3>C#</h3>
-            <p>Skilled in using C# for game development and software applications.</p>
-            <div class="progress-bar"><span style="width: 80%;"></span></div>
-          </div>
-        </div>
+        <div class="skill-icon">☁️</div>
+        <h3>Firebase & PlayFab</h3>
+        <p>Authentication, real-time databases, analytics for game apps.</p>
+        <div class="progress-bar" style="--progress:70%;"><span></span></div>
       </div>
-      <!-- Game Testing -->
       <div class="skill-card">
-        <div class="skill-info">
-          <div class="skill-icon">🔍</div>
-          <div>
-            <h3>Game Testing</h3>
-            <p>Experienced in testing games for bugs and ensuring a smooth user experience.</p>
-            <div class="progress-bar"><span style="width: 80%;"></span></div>
-          </div>
-        </div>
+        <div class="skill-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Designing intuitive, polished player and user interfaces.</p>
+        <div class="progress-bar" style="--progress:80%;"><span></span></div>
       </div>
-      <!-- Backend Development (Beginner) -->
       <div class="skill-card">
-        <div class="skill-info">
-          <div class="skill-icon">💻</div>
-          <div>
-            <h3>Backend Development (Beginner)</h3>
-            <p>Familiar with SQL, Firebase, and PlayFab for building basic backend functionality.</p>
-            <div class="progress-bar"><span style="width: 50%;"></span></div>
-          </div>
-        </div>
+        <div class="skill-icon">🗂️</div>
+        <h3>Git & Agile Workflow</h3>
+        <p>Version control, task splitting, iterative MVP releases.</p>
+        <div class="progress-bar" style="--progress:85%;"><span></span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>C#</h3>
+        <p>Proficient in C#, the backbone of my Unity development and gameplay logic.</p>
+        <div class="progress-bar" style="--progress:90%;"><span></span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🚀</div>
+        <h3>Photon & Netcode</h3>
+        <p>Multiplayer systems with Photon PUN & Unity Netcode for real-time gameplay and matchmaking.</p>
+        <div class="progress-bar" style="--progress:80%;"><span></span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h3>GraphQL</h3>
+        <p>Structured API queries for performance-optimized data communication.</p>
+        <div class="progress-bar" style="--progress:65%;"><span></span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🧠</div>
+        <h3>Prompt Engineering</h3>
+        <p>Crafting effective prompts for AI tools like ChatGPT to yield precise, creative outputs.</p>
+        <div class="progress-bar" style="--progress:85%;"><span></span></div>
       </div>
     </div>
   </section>
-  
+
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects-container">
-      <!-- Mayan Run -->
       <div class="project-card">
-        <img src="mayan_run_screenshot.jpg" alt="Mayan Run Screenshot" />
-        <div class="project-info">
-          <h3>Mayan Run</h3>
-          <p>An endless runner game with unique power-ups and obstacles.</p>
-          <p><strong>Role:</strong> Game Designer and Developer</p>
-          <p><strong>Technologies:</strong> Unity, C#</p>
-          <p class="status">In Development</p>
-          <a href="https://he-is-ace.itch.io/mayan-runner" target="_blank">Play Mayan Run</a>
-        </div>
+        <h3>GoWords</h3>
+        <p>Multiplayer word game with time-based scoring and real-time competition.</p>
+        <p><strong>Tech:</strong> Unity, C#, Photon, Firebase</p>
+        <p class="status">In Development</p>
       </div>
-      <!-- The World's Easiest Game -->
       <div class="project-card">
-        <img src="cosmic_adventure_screenshot.jpg" alt="The World's Easiest Game Screenshot" />
-        <div class="project-info">
-          <h3>The World's Easiest Game</h3>
-          <p>A fun and simple game created on Scratch.</p>
-          <p><strong>Role:</strong> Game Designer and Developer</p>
-          <p><strong>Technologies:</strong> Scratch</p>
-          <a href="https://he-is-ace.itch.io/the-worlds-easiest-game" target="_blank">Play The World's Easiest Game</a>
-        </div>
+        <h3>Spell Check</h3>
+        <p>Correct misspelled falling words before time runs out. Dynamic levels and JSON word pool.</p>
+        <p><strong>Tech:</strong> Unity, C#</p>
       </div>
-      <!-- 2D Shooter -->
       <div class="project-card">
-        <img src="2d_shooter_screenshot.jpg" alt="2D Shooter Screenshot" />
-        <div class="project-info">
-          <h3>2D Shooter</h3>
-          <p>An action-packed 2D shooter where players fend off waves of enemies.</p>
-          <p><strong>Role:</strong> Game Designer and Developer</p>
-          <p><strong>Technologies:</strong> Unity, C#</p>
-          <p class="status">In Development</p>
-        </div>
+        <h3>Tic Tac Toe AI</h3>
+        <p>Classic Tic Tac Toe with a smart AI opponent and draw condition logic.</p>
+        <p><strong>Tech:</strong> Unity, C#</p>
       </div>
-      <!-- Anonymous Chat System -->
       <div class="project-card">
-        <img src="chatroom_placeholder.jpg" alt="Anonymous Chat System" />
-        <div class="project-info">
-          <h3>Anonymous Chat System</h3>
-          <p>A real-time chat system where users can interact anonymously.</p>
-          <p><strong>Role:</strong> Full-Stack Developer</p>
-          <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-          <a href="https://github.com/Acegame-ai/Mychatroom/tree/main/ChatRoom/public" target="_blank">View Project</a>
-        </div>
+        <h3>Meatball Catcher</h3>
+        <p>2D arcade game: catch falling meatballs. Missing 5 ends the game. Includes level slider.</p>
+        <p><strong>Tech:</strong> Unity, C#</p>
       </div>
-      <!-- Effico Project - Frontend (React) -->
       <div class="project-card">
-        <img src="effico_frontend_placeholder.jpg" alt="Effico Frontend" />
-        <div class="project-info">
-          <h3>Effico Project (Frontend)</h3>
-          <p>Developed welcome and admin pages using HTML, CSS, JavaScript, and React.</p>
-          <p><strong>Role:</strong> Frontend Developer</p>
-          <p><strong>Technologies:</strong> HTML, CSS, JavaScript, React</p>
-          <a href="#" target="_blank">View Project</a>
-        </div>
+        <h3>Focus Buddy (Prototype)</h3>
+        <p>Gamified productivity UI with session timers, mood icons, and motivational visuals.</p>
+        <p><strong>Tech:</strong> HTML, CSS, JS</p>
+        <p class="status">Prototype Only</p>
       </div>
-      <!-- Effico Project - Flutter -->
       <div class="project-card">
-        <img src="effico_flutter_placeholder.jpg" alt="Effico Flutter" />
-        <div class="project-info">
-          <h3>Effico Project (Flutter)</h3>
-          <p>A confidential project featuring an image scan feature and document storage.</p>
-          <p><strong>Role:</strong> Frontend Developer</p>
-          <p><strong>Technologies:</strong> Flutter</p>
-          <p class="status">Confidential</p>
-        </div>
+        <h3>Maze Master 100</h3>
+        <p>100-level procedural maze game with timer and leaderboard scoring.</p>
+        <p><strong>Tech:</strong> Unity, C#</p>
+      </div>
+      <div class="project-card">
+        <h3>Mayan Run</h3>
+        <p>Endless runner with ancient aesthetics. Collect power-up coins and dodge obstacles.</p>
+        <a href="https://he-is-ace.itch.io/mayan-runner" target="_blank">Play Mayan Run</a>
+      </div>
+      <div class="project-card">
+        <h3>The World's Easiest Game</h3>
+        <p>A playful Scratch game with unexpected twists and minimal tools. Big fun guaranteed.</p>
+        <a href="https://he-is-ace.itch.io/the-worlds-easiest-game" target="_blank">Play</a>
+      </div>
+      <div class="project-card">
+        <h3>Ultimate Game Jam Shooter</h3>
+        <p>2D shooter with endless waves, power-ups, and polished UI built for the Ultimate Game Jam.</p>
+      </div>
+      <div class="project-card">
+        <h3>Spinnersonic</h3>
+        <p>Fast-paced arcade spin mechanics game with vibrant design and satisfying controls.</p>
+      </div>
+      <div class="project-card">
+        <h3>Eco Dash</h3>
+        <p>Endless runner in an eco-themed world. Dodge, jump, collect eco-coins. Available on Play Store.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.PelzStudioLabs.EcoDash&hl=en" target="_blank">Play</a>
+      </div>
+      <div class="project-card">
+        <h3>Effico (Frontend + Flutter)</h3>
+        <p>Built UI & admin tools with HTML/CSS/JS, plus Flutter image scanning & document storage features.</p>
+      </div>
+      <div class="project-card">
+        <h3>Anonymous Chatroom</h3>
+        <p>Real-time, private chat app with dynamic anonymous identities.</p>
+        <a href="https://github.com/Acegame-ai/Mychatroom" target="_blank">View Code</a>
       </div>
     </div>
   </section>
-  <section id="resume">
-    <h2>Resume</h2>
-    <a href="resume.pdf" download>Download My Resume</a>
-  </section>
+
   <section id="contact">
     <h2>Contact</h2>
-    <div class="contact-info">
-      <div class="contact-card">
-        <h3>Email</h3>
-        <p><a href="mailto:pwahab99@gmail.com">pwahab99@gmail.com</a></p>
-      </div>
-      <div class="contact-card">
-        <h3>LinkedIn</h3>
-        <p><a href="https://www.linkedin.com/in/abdulwahab-lawal-acegames" target="_blank">AbdulWahab Lawal</a></p>
-      </div>
-      <div class="contact-card">
-        <h3>Itch.io</h3>
-        <p><a href="https://he-is-ace.itch.io" target="_blank">My Itch.io Profile</a></p>
-      </div>
-    </div>
+    <ul>
+      <li>Email: <a href="mailto:pwahab99@gmail.com">pwahab99@gmail.com</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/abdulwahab-lawal-acegames" target="_blank">@abdulwahab-lawal-acegames</a></li>
+      <li>Itch.io: <a href="https://he-is-ace.itch.io" target="_blank">@he-is-ace</a></li>
+    </ul>
   </section>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
